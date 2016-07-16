@@ -11,7 +11,6 @@ urlpatterns = [
     url(r'^posts/', include("posts.urls", namespace="posts")),
 
     url(r'^api/', include("apis.urls", namespace="apis")),
-    url(r'docs/', include('rest_framework_swagger.urls')),
 
     url(r'^social/', include('social.apps.django_app.urls', namespace='social')),
     url(r'^auth/', include('rest_framework_social_oauth2.urls')),
