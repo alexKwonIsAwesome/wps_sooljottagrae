@@ -180,7 +180,7 @@ PIPELINE = {
 # Auth
 AUTH_USER_MODEL = "users.User"
 
-LOGIN_URL = "/user/login/"
+LOGIN_URL = "/login/"
 
 SIGNUP_SUCCESS_MESSAGE = "성공적으로 회원가입 되었습니다."
 LOGIN_SUCCESS_MESSAGE = "성공적으로 로그인 되었습니다."
@@ -197,8 +197,8 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.BasicAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
 
-        # 'oauth2_provider.ext.rest_framework.OAuth2Authentication',
-        # 'rest_framework_social_oauth2.authentication.SocialAuthentication',
+        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
+        'rest_framework_social_oauth2.authentication.SocialAuthentication',
     ),
 }
 
@@ -206,13 +206,14 @@ REST_FRAMEWORK = {
 
 AUTHENTICATION_BACKENDS = [
         'social.backends.facebook.FacebookOAuth2',
+        'social.backends.facebook.FacebookAppOAuth2',
 
-        # 'rest_framework_social_oauth2.backends.DjangoOAuth2',
+        'rest_framework_social_oauth2.backends.DjangoOAuth2',
 
         'django.contrib.auth.backends.ModelBackend',
 ]
 
-SOCIAL_AUTH_URL_NAMESPACE = 'users:social'
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get("SOCIAL_AUTH_FACEBOOK_KEY")
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get("SOCIAL_AUTH_FACEBOOK_SECRET")
