@@ -4,4 +4,4 @@ migrate:
 
 test:
 	- pep8 . -v
-	- python sooljottagrae/manage.py test users posts tags -v2 
+	- python sooljottagrae/manage.py test users posts tags apis -v2 
