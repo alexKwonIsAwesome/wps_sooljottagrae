@@ -119,7 +119,6 @@ class UserModelSerializer(ModelSerializer):
                 "place_tags",
                 "avatar",
                 "email",
-                "password",
         ]
 
     def get_alcohol_tags(self, obj):
